@@ -1,7 +1,7 @@
 import img1 from "../assets/blog1.png";
 import img2 from "../assets/blog2.png";
 import img3 from "../assets/blog3.png";
-import img4 from "../assets/blog4.png";
+import img4 from "../assets/Blog4.png";
 
 const blogs = [
   {

@@ -1,9 +1,11 @@
+// blogData.js
 import img1 from "../assets/blog1.png";
 import img2 from "../assets/blog2.png";
 import img3 from "../assets/blog3.png";
 import img4 from "../assets/Blog4.png";
+// import img5 from "../assets/blog5.png"; // You'll need to add this image to your assets
 
-const blogs = [
+const blogData = [
   {
     id: 1,
     title: "Building a Full Stack Application with React, Node.js, and MongoDB",
@@ -225,7 +227,158 @@ result = grouped.agg({
     date: "2023-11-20",
     author: "Data Pythonista",
     tags: ["python", "pandas", "data-science", "data-analysis"]
+  },
+  {
+    id: 5,
+    title: "Modern Authentication Strategies for Web Applications",
+    description: "Learn about OAuth, JWT, session management, and other secure authentication methods for your web applications.",
+    category: "Security",
+    readTime: "25 min read",
+    difficulty: "Advanced",
+    slug: "modern-web-authentication",
+    image: "img5",
+    content: `
+      <h2>Authentication in Modern Web Applications</h2>
+      <p>Secure authentication is critical for protecting user data and preventing unauthorized access. This guide explores current best practices.</p>
+
+      <h3>JWT Authentication</h3>
+      <p>JSON Web Tokens provide a stateless authentication mechanism:</p>
+      <pre style="background-color: #111827; color: #ffffff; padding: 1rem; border-radius: 0.5rem;"><code>const jwt = require('jsonwebtoken');
+
+// Creating a token
+const token = jwt.sign(
+  { userId: user.id },
+  process.env.JWT_SECRET,
+  { expiresIn: '1h' }
+);
+
+// Verifying a token
+const decoded = jwt.verify(token, process.env.JWT_SECRET);</code></pre>
+
+      <h3>OAuth 2.0 Implementation</h3>
+      <p>Implementing social login with OAuth 2.0:</p>
+      <pre style="background-color: #111827; color: #ffffff; padding: 1rem; border-radius: 0.5rem;"><code>// Using Passport.js with Google OAuth
+const passport = require('passport');
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+
+passport.use(new GoogleStrategy({
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL: "/auth/google/callback"
+  },
+  function(accessToken, refreshToken, profile, cb) {
+    // Handle user authentication
   }
+));</code></pre>
+
+      <h3>Security Best Practices</h3>
+      <ul>
+        <li>Implement HTTPS everywhere</li>
+        <li>Use HTTP-only cookies for session tokens</li>
+        <li>Implement CSRF protection</li>
+        <li>Apply proper password hashing with bcrypt or Argon2</li>
+        <li>Use multi-factor authentication for sensitive operations</li>
+      </ul>
+
+      <h3>Common Pitfalls</h3>
+      <p>Authentication vulnerabilities to avoid:</p>
+      <ul>
+        <li>Client-side token storage in localStorage</li>
+        <li>Using weak JWT secrets</li>
+        <li>Missing token expiration</li>
+        <li>Improper session invalidation on logout</li>
+        <li>Insecure direct object references</li>
+      </ul>
+    `,
+    date: "2023-12-15",
+    author: "Security Specialist",
+    tags: ["security", "authentication", "jwt", "oauth", "web-development"]
+  },
+  {
+    id: 6,
+    title: "Why # in Anchor Tags Doesn’t Work in SPAs — And How to Fix It",
+    description: "Learn why traditional anchor links like #contact fail in Single Page Applications and how to handle scroll-to-section navigation the right way using React Router.",
+    category: "Frontend",
+    readTime: "12 min read",
+    difficulty: "Intermediate",
+    slug: "spa-anchor-tag-issue",
+    image: "img6",
+    content: `
+      <h2>Why # in Anchor Tags Doesn’t Work in SPAs — And How to Fix It</h2>
+      <p>In traditional websites, anchor links like <code>&lt;a href="#section"&gt;</code> are a reliable way to navigate to specific sections of the page. But in Single Page Applications (SPAs), especially those built with React, Vue, or Angular, this method often breaks. Let's explore why and how to fix it.</p>
+  
+      <h3>The Problem</h3>
+      <p>In SPAs, your application uses client-side routing. So when you’re on <code>/blogs</code> and click <code>&lt;a href="#contact"&gt;</code>, nothing happens. That’s because the <code>id="contact"</code> element only exists on the home page (<code>/</code>) — not on <code>/blogs</code>.</p>
+  
+      <h3>The Solution</h3>
+      <p>You need a two-step process:</p>
+      <ol>
+        <li>Check if you're already on the home route</li>
+        <li>If not, navigate to the home page, and once loaded, scroll to the <code>#contact</code> section</li>
+      </ol>
+  
+      <h3>Step 1: Set Up the Scroll Trigger</h3>
+      <pre style="background-color: #111827; color: #ffffff; padding: 1rem; border-radius: 0.5rem;">
+  <code>import { useNavigate, useLocation } from 'react-router-dom';
+  
+  function handleContactClick() {
+    if (location.pathname === '/') {
+      const el = document.getElementById('contact');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate('/', { state: { scrollToContact: true } });
+    }
+  }</code>
+      </pre>
+  
+      <h3>Step 2: Scroll After Navigation</h3>
+      <p>In the home page component, detect if the <code>scrollToContact</code> flag is set, and if so, scroll after the component mounts:</p>
+      <pre style="background-color: #111827; color: #ffffff; padding: 1rem; border-radius: 0.5rem;">
+  <code>import { useEffect } from 'react';
+  import { useLocation } from 'react-router-dom';
+  
+  function HomePage() {
+    const location = useLocation();
+  
+    useEffect(() => {
+      if (location.state?.scrollToContact) {
+        const el = document.getElementById('contact');
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }, [location]);
+  
+    return (
+      &lt;section id="contact"&gt;
+        {/* Contact content */}
+      &lt;/section&gt;
+    );
+  }</code>
+      </pre>
+  
+      <h3>Optional: Clear Scroll Intent</h3>
+      <p>To prevent it from triggering again, you can replace the route after the scroll:</p>
+      <pre style="background-color: #111827; color: #ffffff; padding: 1rem; border-radius: 0.5rem;">
+  <code>navigate('/', { state: { scrollToContact: true }, replace: true });</code>
+      </pre>
+  
+      <h3>Bonus: Using Query Params Instead of State</h3>
+      <p>You can also use URL query parameters like <code>?scroll=contact</code> and scroll based on that. This makes your scroll behavior shareable via URL.</p>
+  
+      <h3>Summary</h3>
+      <ul>
+        <li>Anchor links fail across routes in SPAs because the target DOM elements don’t exist</li>
+        <li>Use React Router's <code>navigate()</code> and pass scroll intent via state or query</li>
+        <li>Scroll programmatically after the correct page loads</li>
+      </ul>
+      <p>This technique ensures a smooth UX and keeps your SPA behaving like a traditional site — without the reloads.</p>
+    `,
+    date: "2025-04-30",
+    author: "Frontend Dev",
+    tags: ["react", "spa", "scroll", "routing", "frontend"]
+  }
+  
 ];
 
-export default blogs;
+export default blogData;

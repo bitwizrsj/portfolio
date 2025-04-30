@@ -1,18 +1,31 @@
-import React, { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useState } from 'react';
 
 export default function Navbar() {
-    const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-    const toggleMenu = () => {
-        setExpanded(!expanded);
-    };
+  const toggleMenu = () => setExpanded(!expanded); // ✅ Add this line back
+
+  const handleContactClick = () => {
+    if (location.pathname === '/') {
+      // Already on home page, just scroll
+      const el = document.getElementById('contact');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // Navigate to home and scroll using state
+      navigate('/', { state: { scrollToContact: true } });
+    }
+    setExpanded(false);
+  };
 
     return (
         <header className="py-4 bg-black sm:py-6 sticky top-0 z-50">
             <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between">
                     <div className="shrink-0">
-                        <a href="#" title="" className="flex text-white ">
+                        <a href="/" title="" className="flex text-white ">
                             BITWIZ RSJ
                         </a>
                     </div>
@@ -61,35 +74,33 @@ export default function Navbar() {
                     </div>
 
                     <nav className="hidden md:flex md:items-center md:justify-end md:space-x-12">
-                        <a href="#" className="text-base font-normal text-gray-400 hover:text-white">
+                        <a href="/" className="text-base font-normal text-gray-400 hover:text-white">
                             Home
                         </a>
-                        <a href="#" className="text-base font-normal text-gray-400 hover:text-white">
+                        <a href="/projects" className="text-base font-normal text-gray-400 hover:text-white">
                             Portfolio
                         </a>
-                        <a href="#" className="text-base font-normal text-gray-400 hover:text-white">
+                        <a href="/blogs" className="text-base font-normal text-gray-400 hover:text-white">
                             Blogs
                         </a>
-                        <a href="#" className="text-base font-normal text-gray-400 hover:text-white">
-                            Contact 
-                        </a>
+                        <button onClick={handleContactClick} className="text-gray-400 hover:text-white">Contact</button>
                     </nav>
                 </div>
 
                 {expanded && (
                     <nav>
                         <div className="flex flex-col pt-8 pb-4 space-y-6">
-                            <a href="#" className="text-base font-normal text-gray-400 hover:text-white">
-                                Products
+                            <a href="/" className="text-base font-normal text-gray-400 hover:text-white">
+                                Home
                             </a>
-                            <a href="#" className="text-base font-normal text-gray-400 hover:text-white">
-                                Features
+                            <a href="/projects" className="text-base font-normal text-gray-400 hover:text-white">
+                                Portfolio
                             </a>
-                            <a href="#" className="text-base font-normal text-gray-400 hover:text-white">
-                                Pricing
+                            <a href="/blogs" className="text-base font-normal text-gray-400 hover:text-white">
+                                Blogs
                             </a>
-                            <a href="#" className="text-base font-normal text-gray-400 hover:text-white">
-                                Support
+                            <a href="#contact" className="text-base font-normal text-gray-400 hover:text-white">
+                                Contact
                             </a>
                         </div>
                     </nav>

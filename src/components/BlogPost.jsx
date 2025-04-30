@@ -7,7 +7,7 @@ const BlogPost = () => {
 
   if (!blog) {
     return (
-      <section className="py-20 bg-gradient-to-b from-black to-gray-900 text-white min-h-screen flex items-center justify-center">
+      <section className="py-20 bg-black text-white min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl font-bold mb-4">404</h1>
           <p className="text-gray-400">Blog post not found</p>
@@ -17,7 +17,7 @@ const BlogPost = () => {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-b from-black to-gray-900 text-white min-h-screen">
+    <section className="py-20 bg-black text-white min-h-screen">
       <div className="max-w-4xl mx-auto px-4">
         <div className="mb-12">
           <div className="w-32 h-1 bg-indigo-600 mb-6"></div>

@@ -4,6 +4,7 @@ import img2 from "../assets/blog2.png";
 import img3 from "../assets/blog3.png";
 import img4 from "../assets/Blog4.png";
 // import img5 from "../assets/blog5.png"; // You'll need to add this image to your assets
+import img6 from "../assets/Blog6.png";
 
 const blogData = [
   {
@@ -302,7 +303,7 @@ passport.use(new GoogleStrategy({
     readTime: "12 min read",
     difficulty: "Intermediate",
     slug: "spa-anchor-tag-issue",
-    image: "img6",
+    image: img6,
     content: `
       <h2>Why # in Anchor Tags Doesn’t Work in SPAs — And How to Fix It</h2>
       <p>In traditional websites, anchor links like <code>&lt;a href="#section"&gt;</code> are a reliable way to navigate to specific sections of the page. But in Single Page Applications (SPAs), especially those built with React, Vue, or Angular, this method often breaks. Let's explore why and how to fix it.</p>
@@ -377,7 +378,84 @@ passport.use(new GoogleStrategy({
     date: "2025-04-30",
     author: "Frontend Dev",
     tags: ["react", "spa", "scroll", "routing", "frontend"]
+  },
+  {
+    id: 7,
+    title: "React Router Not Working on Vercel? Here's the Fix",
+    description: "Deployed your React app to Vercel but client-side routing breaks on refresh? Learn why it happens and how to solve it with a simple rewrite rule.",
+    category: "Frontend",
+    readTime: "10 min read",
+    difficulty: "Beginner",
+    slug: "react-router-vercel-routing-fix",
+    image: "img7",
+    content: `
+      <h2>React Router Not Working on Vercel? Here's the Fix</h2>
+      <p>Deploying your React app to <a href="https://vercel.com" target="_blank">Vercel</a> is usually seamless — until routing breaks. You click a link in your app, it works. But refresh the page or go directly to a URL like <code>/about</code>, and you get a 404 error.</p>
+  
+      <h3>🧭 Why It Happens</h3>
+      <p>React Router uses <strong>client-side routing</strong>, but Vercel is a static file host unless you're using Next.js. So when you navigate to <code>/about</code>, Vercel tries to serve a physical <code>about.html</code> file. If it doesn’t exist, you get a 404.</p>
+  
+      <h3>🛠️ The Fix: Serve <code>index.html</code> for All Routes</h3>
+      <p>You need to tell Vercel to redirect all unknown paths to <code>index.html</code>, so React Router can take over and render the correct route in the browser.</p>
+  
+      <h3>✅ Step 1: Create a <code>vercel.json</code> File</h3>
+      <pre style="background-color: #111827; color: #ffffff; padding: 1rem; border-radius: 0.5rem;">
+  <code>{
+    "rewrites": [
+      { "source": "/(.*)", "destination": "/index.html" }
+    ]
+  }</code>
+      </pre>
+  
+      <h3>✅ Step 2: Commit and Push</h3>
+      <p>Place <code>vercel.json</code> at the root of your project and push it to your Git repo. Vercel will auto-deploy or you can trigger a manual deployment.</p>
+  
+      <h3>✅ Step 3: Use <code>BrowserRouter</code> in React</h3>
+      <p>Make sure you’re using <code>BrowserRouter</code> in your app:</p>
+      <pre style="background-color: #111827; color: #ffffff; padding: 1rem; border-radius: 0.5rem;">
+  <code>import { BrowserRouter, Routes, Route } from 'react-router-dom';
+  
+  function App() {
+    return (
+      &lt;BrowserRouter&gt;
+        &lt;Routes&gt;
+          &lt;Route path="/" element={<Home />} /&gt;
+          &lt;Route path="/about" element={<About />} /&gt;
+        &lt;/Routes&gt;
+      &lt;/BrowserRouter&gt;
+    );
+  }</code>
+      </pre>
+  
+      <h3>🧩 Folder Structure Example</h3>
+      <p>Your project should look like this:</p>
+      <pre style="background-color: #111827; color: #ffffff; padding: 1rem; border-radius: 0.5rem;">
+  <code>my-react-app/
+  ├── public/
+  │   └── index.html
+  ├── src/
+  │   └── App.js
+  ├── vercel.json  ← ✅ this file!
+  └── package.json</code>
+      </pre>
+  
+      <h3>🎉 You're All Set</h3>
+      <p>Once you've added <code>vercel.json</code>, your React app will handle routing properly — no more 404s when refreshing or sharing deep links!</p>
+  
+      <h3>📌 Summary</h3>
+      <ul>
+        <li>Vercel serves static files by default — direct URLs break client-side routing.</li>
+        <li>Use a <code>vercel.json</code> rewrite rule to route all requests to <code>index.html</code>.</li>
+        <li>Make sure you're using <code>BrowserRouter</code> and not <code>HashRouter</code>.</li>
+      </ul>
+  
+      <p>With this setup, your React app will behave like a true SPA and work perfectly on Vercel.</p>
+    `,
+    date: "2025-04-30",
+    author: "Frontend Dev",
+    tags: ["react", "routing", "vercel", "deployment", "frontend"]
   }
+  
   
 ];
 

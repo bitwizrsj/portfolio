@@ -1,8 +1,9 @@
 // projectData.js
 import p1 from '../../assets/hypernextechnology.png';
 import p2 from '../../assets/dashboard.png';
-import p3 from '../../assets/healthcare.png';
+import p3 from '../../assets/health.png';
 import p4 from '../../assets/flappy.png'
+import p5 from '../../assets/Nike.png';
 
 
 const projectData = [
@@ -13,7 +14,7 @@ const projectData = [
       imageUrl: p1,
       fullDescription: "A comprehensive technology solution using React frontend and Node.js backend with MongoDB database. Features included user authentication, dashboard analytics, and responsive design.",
       technologies: ["React", "Node.js", "MongoDB", "Express", "Redux"],
-      demoLink: "https://hypernex-demo.example.com",
+      demoLink: "https://hypernextechnologies.com/",
       githubLink: "https://github.com/example/hypernex",
       category: "Web Development"
     },
@@ -24,7 +25,7 @@ const projectData = [
       imageUrl: p2,
       fullDescription: "A comprehensive school management system for tracking student attendance, grades, and faculty information. Features include role-based access control, reporting tools, and parent communication portal.",
       technologies: ["React", "Firebase", "Material-UI", "Chart.js", "Node.js"],
-      demoLink: "https://school-management-demo.example.com",
+      demoLink: "https://s-square-psi.vercel.app/",
       githubLink: "https://github.com/example/school-management",
       category: "Web Development"
     },
@@ -35,7 +36,7 @@ const projectData = [
       imageUrl: p3,
       fullDescription: "A healthcare portal for patients and doctors to manage appointments, medical records, and prescription history. Implements HIPAA compliance standards with encrypted data transfer.",
       technologies: ["React", "TypeScript", "AWS", "Node.js", "PostgreSQL"],
-      demoLink: "https://healthcare-demo.example.com",
+      demoLink: "https://dental-five-omega.vercel.app/",
       githubLink: "https://github.com/example/healthcare-portal",
       category: "Healthcare"
     },
@@ -52,9 +53,9 @@ const projectData = [
     },
     {
       id: 5,
-      name: "E-Commerce Platform",
-      description: "Full-Stack Development",
-      imageUrl: "/assets/ecommerce.png",
+      name: "Nike Reimagined",
+      description: "Frontend Development",
+      imageUrl: p5,
       fullDescription: "A fully functional e-commerce platform with product listings, shopping cart, user authentication, payment processing, and order tracking. Responsive design for all devices.",
       technologies: ["React", "Node.js", "MongoDB", "Stripe API", "Redux"],
       demoLink: "https://ecommerce-demo.example.com",

@@ -4,37 +4,68 @@ import projectData from './projectData';
 
 export default function ProjectsSection() {
   const navigate = useNavigate();
-  const featuredProjects = projectData.slice(0, 6); // Show only first 6 projects
+  const [activeCategory, setActiveCategory] = useState('All');
+  
+  // Extract unique categories from project data
+  const allCategories = ['All', ...new Set(projectData.map(project => project.category))];
+  
+  // Filter projects based on active category
+  const filteredProjects = activeCategory === 'All' 
+    ? projectData.slice(0, 6) // Show only first 6 projects when "All" is selected
+    : projectData.filter(project => project.category === activeCategory).slice(0, 6);
   
   return (
     <section className="bg-black text-white py-12 px-4 md:px-8 lg:px-16">
       <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
         
         {/* Heading, Description and See All button */}
-        <div className="mb-12 flex justify-between items-center">
-  <div>
-    <h3 className="text-2xl font-normal tracking-widest text-gray-300 uppercase">Latest Work</h3>
-    <div className="w-full h-px bg-gray-700 mt-4"></div>
-  </div>
+        <div className="mb-8 flex justify-between items-center">
+          <div>
+            <h3 className="text-2xl font-normal tracking-widest text-gray-300 uppercase">Latest Work</h3>
+            <div className="w-full h-px bg-gray-700 mt-4"></div>
+          </div>
 
-  {/* Styled button (no animation) */}
-  <div className="relative inline-flex items-center justify-center group">
-    <div className="absolute transition-all duration-200 rounded-full -inset-px bg-gradient-to-r from-cyan-500 to-purple-500 group-hover:shadow-lg group-hover:shadow-cyan-500/50"></div>
-    <Link
-      to="/projects"
-      className="relative inline-flex items-center justify-center px-6 py-2 text-base font-normal text-white bg-black border border-transparent rounded-full"
-    >
-      See All Projects
-    </Link>
-  </div>
-</div>
+          {/* Styled button (no animation) */}
+          <div className="relative inline-flex items-center justify-center group">
+            <div className="absolute transition-all duration-200 rounded-full -inset-px bg-gradient-to-r from-cyan-500 to-purple-500 group-hover:shadow-lg group-hover:shadow-cyan-500/50"></div>
+            <Link
+              to="/projects"
+              className="relative inline-flex items-center justify-center px-6 py-2 text-base font-normal text-white bg-black border border-transparent rounded-full"
+            >
+              See All Projects
+            </Link>
+          </div>
+        </div>
+        
+        {/* Category Filter Tabs */}
+        <div className="mb-8 flex flex-wrap gap-4 justify-center">
+          {allCategories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setActiveCategory(category)}
+              className={`px-4 py-2 rounded-full transition-all duration-300 ${
+                activeCategory === category
+                ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium'
+                : 'bg-gray-900 text-gray-400 hover:text-white border border-gray-800'
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
 
         {/* Projects Grid */}
         <div className="flex justify-center">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} navigate={navigate} />
-            ))}
+            {filteredProjects.length > 0 ? (
+              filteredProjects.map((project) => (
+                <ProjectCard key={project.id} project={project} navigate={navigate} />
+              ))
+            ) : (
+              <div className="col-span-3 text-center py-12">
+                <p className="text-gray-400">No projects found in this category.</p>
+              </div>
+            )}
           </div>
         </div>
 

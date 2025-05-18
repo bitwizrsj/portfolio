@@ -4,6 +4,7 @@ import p2 from '../../assets/dashboard.png';
 import p3 from '../../assets/health.png';
 import p4 from '../../assets/flappy.png'
 import p5 from '../../assets/Nike.png';
+import xyp from '../../assets/xyp.png';
 
 
 const projectData = [
@@ -24,7 +25,7 @@ const projectData = [
       description: "Full-Stack Development",
       imageUrl: p2,
       fullDescription: "A comprehensive school management system for tracking student attendance, grades, and faculty information. Features include role-based access control, reporting tools, and parent communication portal.",
-      technologies: ["React", "Firebase", "Material-UI", "Chart.js", "Node.js"],
+      technologies: ["React", "Firebase", "Chart.js", "Node.js"],
       demoLink: "https://s-square-psi.vercel.app/",
       githubLink: "https://github.com/example/school-management",
       category: "Web Development"
@@ -57,19 +58,19 @@ const projectData = [
       description: "Frontend Development",
       imageUrl: p5,
       fullDescription: "A fully functional e-commerce platform with product listings, shopping cart, user authentication, payment processing, and order tracking. Responsive design for all devices.",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe API", "Redux"],
+      technologies: ["React"],
       demoLink: "https://ecommerce-demo.example.com",
       githubLink: "https://github.com/example/ecommerce",
       category: "Web Development"
     },
     {
       id: 6,
-      name: "Weather Forecast App",
-      description: "Frontend Development",
-      imageUrl: "/assets/weather.png",
+      name: "Xyphramin",
+      description: "Fullstack Development",
+      imageUrl: xyp,
       fullDescription: "A weather forecast application that provides real-time weather data and 7-day forecasts for any location. Features include geolocation, animated weather icons, and metric/imperial unit switching.",
-      technologies: ["React", "OpenWeather API", "Geolocation API", "CSS Animations"],
-      demoLink: "https://weather-app-demo.example.com",
+      technologies: ["React", "Node.js", "MongoDB", "Express", "Redux"],
+      demoLink: "https://xyphramin.com/",
       githubLink: "https://github.com/example/weather-app",
       category: "Web Development"
     },

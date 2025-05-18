@@ -5,6 +5,7 @@ import p3 from '../../assets/health.png';
 import p4 from '../../assets/flappy.png'
 import p5 from '../../assets/Nike.png';
 import xyp from '../../assets/xyp.png';
+import sch from '../../assets/sch.png';
 
 
 const projectData = [
@@ -42,16 +43,16 @@ const projectData = [
       category: "Healthcare"
     },
     {
-      id: 4,
-      name: "Flappy Bird",
-      description: "Game Development",
-      imageUrl: p4,
-      fullDescription: "A recreation of the popular Flappy Bird game using vanilla JavaScript and HTML Canvas. Features include score tracking, difficulty levels, and mobile-friendly controls.",
-      technologies: ["JavaScript", "HTML Canvas", "CSS", "Local Storage"],
-      demoLink: "https://flappy-bird-demo.example.com",
-      githubLink: "https://github.com/example/flappy-bird",
-      category: "Gaming"
-    },
+  id: 4,
+  name: "Horizon Academy Website",
+  description: "School Website",
+  imageUrl: sch,
+  fullDescription: "A responsive website for Horizon Academy, designed to provide students, parents, and staff with important information such as announcements, class schedules, results, and contact details. The site features modern UI, dark mode support, and is optimized for both desktop and mobile devices.",
+  technologies: ["React", "Tailwind CSS", "React Router", "JavaScript"],
+  demoLink: "https://horizon-academy.example.com",
+  githubLink: "https://github.com/example/horizon-academy-website",
+  category: "Education"
+},
     {
       id: 5,
       name: "Nike Reimagined",
@@ -75,15 +76,18 @@ const projectData = [
       category: "Web Development"
     },
     {
-      id: 7,
-      name: "Task Management Tool",
-      description: "Full-Stack Development",
-      imageUrl: "/assets/taskmanager.png",
-      fullDescription: "A task management application with features like task categorization, due dates, priority levels, and team collaboration. Includes notification system and progress tracking.",
-      technologies: ["React", "Firebase", "Material-UI", "Redux", "React DnD"],
-      demoLink: "https://task-manager-demo.example.com",
-      githubLink: "https://github.com/example/task-manager",
-      category: "Productivity"
+      
+  id: 7,
+  name: "Horizon Academy Website",
+  description: "School Website",
+  imageUrl: p4,
+  fullDescription: "A responsive website for Horizon Academy, designed to provide students, parents, and staff with important information such as announcements, class schedules, results, and contact details. The site features modern UI, dark mode support, and is optimized for both desktop and mobile devices.",
+  technologies: ["React", "Tailwind CSS", "React Router", "JavaScript"],
+  demoLink: "https://horizon-academy.example.com",
+  githubLink: "https://github.com/example/horizon-academy-website",
+  category: "Education"
+
+
     },
     {
       id: 8,

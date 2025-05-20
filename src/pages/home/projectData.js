@@ -6,6 +6,7 @@ import p4 from '../../assets/flappy.png'
 import p5 from '../../assets/Nike.png';
 import xyp from '../../assets/xyp.png';
 import sch from '../../assets/sch.png';
+import mdschool from '../../assets/mdschool.png';
 
 
 const projectData = [
@@ -18,7 +19,7 @@ const projectData = [
       technologies: ["React", "Node.js", "MongoDB", "Express", "Redux"],
       demoLink: "https://hypernextechnologies.com/",
       githubLink: "https://github.com/example/hypernex",
-      category: "Web Development"
+      category: "Start Up"
     },
     {
       id: 2,
@@ -29,29 +30,29 @@ const projectData = [
       technologies: ["React", "Firebase", "Chart.js", "Node.js"],
       demoLink: "https://s-square-psi.vercel.app/",
       githubLink: "https://github.com/example/school-management",
-      category: "Web Development"
+      category: "Services"
     },
     {
       id: 3,
-      name: "Healthcare Portal",
+      name: "Healthcare Website",
       description: "Full-Stack Development",
       imageUrl: p3,
       fullDescription: "A healthcare portal for patients and doctors to manage appointments, medical records, and prescription history. Implements HIPAA compliance standards with encrypted data transfer.",
       technologies: ["React", "TypeScript", "AWS", "Node.js", "PostgreSQL"],
       demoLink: "https://dental-five-omega.vercel.app/",
       githubLink: "https://github.com/example/healthcare-portal",
-      category: "Healthcare"
+      category: "Commercial"
     },
     {
   id: 4,
-  name: "Horizon Academy Website",
-  description: "School Website",
-  imageUrl: sch,
-  fullDescription: "A responsive website for Horizon Academy, designed to provide students, parents, and staff with important information such as announcements, class schedules, results, and contact details. The site features modern UI, dark mode support, and is optimized for both desktop and mobile devices.",
+  name: "Modern School Website",
+  description: "Modern Sleek School Website",
+  imageUrl: mdschool,
+  fullDescription: "A responsive website for Modern School Website, designed to provide students, parents, and staff with important information such as announcements, class schedules, results, and contact details. The site features modern UI, dark mode support, and is optimized for both desktop and mobile devices.",
   technologies: ["React", "Tailwind CSS", "React Router", "JavaScript"],
-  demoLink: "https://horizon-academy.example.com",
+  demoLink: "https://modern-school-brown.vercel.app/",
   githubLink: "https://github.com/example/horizon-academy-website",
-  category: "Education"
+  category: "School"
 },
     {
       id: 5,
@@ -62,7 +63,7 @@ const projectData = [
       technologies: ["React"],
       demoLink: "https://ecommerce-demo.example.com",
       githubLink: "https://github.com/example/ecommerce",
-      category: "Web Development"
+      category: "Modern Web"
     },
     {
       id: 6,
@@ -73,33 +74,33 @@ const projectData = [
       technologies: ["React", "Node.js", "MongoDB", "Express", "Redux"],
       demoLink: "https://xyphramin.com/",
       githubLink: "https://github.com/example/weather-app",
-      category: "Web Development"
+      category: "Start Up"
     },
     {
       
   id: 7,
-  name: "Horizon Academy Website",
-  description: "School Website",
+  name: "Flappy Bird Game",
+  description: "Game Development",
   imageUrl: p4,
-  fullDescription: "A responsive website for Horizon Academy, designed to provide students, parents, and staff with important information such as announcements, class schedules, results, and contact details. The site features modern UI, dark mode support, and is optimized for both desktop and mobile devices.",
-  technologies: ["React", "Tailwind CSS", "React Router", "JavaScript"],
-  demoLink: "https://horizon-academy.example.com",
-  githubLink: "https://github.com/example/horizon-academy-website",
-  category: "Education"
+  fullDescription: "A clone of the popular Flappy Bird game built using JavaScript and HTML5 Canvas. Features include responsive design, sound effects, and high score tracking.",
+  technologies: ["JavaScript", "HTML5", "CSS3"],
+  demoLink: "https://flappy-bird-clone.example.com",
+  githubLink: "",
+  category: "Games"
 
 
     },
     {
-      id: 8,
-      name: "Portfolio Website Template",
-      description: "Frontend Development",
-      imageUrl: "/assets/portfolio.png",
-      fullDescription: "A customizable portfolio website template for developers and designers. Features smooth animations, responsive design, dark/light mode, and easily configurable sections.",
-      technologies: ["React", "Tailwind CSS", "Framer Motion", "Next.js"],
-      demoLink: "https://portfolio-demo.example.com",
-      githubLink: "https://github.com/example/portfolio-template",
-      category: "Web Development"
-    }
+  id: 8,
+  name: "Horizon Academy Website",
+  description: "School Website",
+  imageUrl: sch,
+  fullDescription: "A responsive website for Horizon Academy, designed to provide students, parents, and staff with important information such as announcements, class schedules, results, and contact details. The site features modern UI, dark mode support, and is optimized for both desktop and mobile devices.",
+  technologies: ["React", "Tailwind CSS", "React Router", "JavaScript"],
+  demoLink: "https://horizon-academy.example.com",
+  githubLink: "https://github.com/example/horizon-academy-website",
+  category: "School"
+}
   ];
   
   export default projectData;

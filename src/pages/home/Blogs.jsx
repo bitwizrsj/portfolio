@@ -37,7 +37,9 @@ const BlogSection = () => {
             <div
               key={blog.id}
               data-index={index}
-              className={`blog-card group relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl overflow-hidden border border-gray-800 hover:border-blue-500 transition-all duration-500 ${visibleBlogs.includes(index) ? 'opacity-100' : 'opacity-0'} transform transition-all duration-1000`}
+className={`blog-card group relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl overflow-hidden border border-gray-800 hover:border-blue-500 transition-all duration-500 ${
+  visibleBlogs.includes(index) ? 'opacity-100' : 'opacity-0'
+} transform transition-all duration-1000 w-full max-w-sm mx-auto`}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 transition-opacity duration-500 rounded-2xl"></div>
               {/* Image Section */}

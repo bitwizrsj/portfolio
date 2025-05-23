@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Hero from './Hero';
 import WhyChooseMe from './WhyChooseMe';
-import Brands from './Brands';
+import { Brands } from './Brands'; // ✅ Notice the { Brands }
 import ProjectsSection from './Projects';
 import BlogSection from './Blogs';
 import ContactForm from './Contact';
@@ -24,7 +24,7 @@ export default function Home () {
   return (
     <>
       <Hero />
-      <WhyChooseMe />
+      {/* <WhyChooseMe /> */}
       <Brands />
       <ProjectsSection />
       <BlogSection />

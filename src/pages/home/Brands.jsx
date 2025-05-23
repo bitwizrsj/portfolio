@@ -1,56 +1,54 @@
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
+import { InfiniteScroll } from "./InfiniteScroll.jsx"; // Ensure this exists
 
-export default function Brands() {
-  const brands = [
-    {
-      name: "Hypernex Technology",
-      logo: "https://images.pexels.com/photos/2977565/pexels-photo-2977565.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    },
-    {
-      name: "Modern School",
-      logo: "https://images.pexels.com/photos/256395/pexels-photo-256395.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    },
-    {
-      name: "Xyphramin",
-      logo: "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    },
-    {
-      name: "Healthcare Solutions",
-      logo: "https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    }
-  ];
+const brands = [
+  { id: "1", name: "Hypernex Technologies", icon: "🚀" },
+  { id: "2", name: "Xyphramin Technologies", icon: "🧬" },
+  { id: "3", name: "BMS Academy", icon: "🎓" },
+  { id: "4", name: "LDPS", icon: "🏫" },
+  { id: "5", name: "Poornima University", icon: "🏛️" },
+];
+
+function BrandBadge({ brand }) {
+  return (
+    <motion.div
+      whileHover={{ scale: 1.05 }}
+      className="mr-4 flex items-center gap-3 rounded-xl   px-5 py-3 backdrop-blur-sm transition-shadow hover:shadow-lg"
+    >
+      <span className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-800 text-xl">
+        {brand.icon}
+      </span>
+      <span className="text-sm font-semibold text-white">{brand.name}</span>
+    </motion.div>
+  );
+}
+
+export function Brands() {
+  const renderScrollBlocks = (items, Component, duration, directions) =>
+    directions.map((direction, i) => (
+      <InfiniteScroll key={i} duration={duration} direction={direction}>
+        {items.map((item) => (
+          <Component
+            key={item.id}
+            {...{ [Component === BrandBadge ? "brand" : "testimonial"]: item }}
+          />
+        ))}
+      </InfiniteScroll>
+    ));
 
   return (
-    <section className="py-20 bg-gradient-to-b from-black to-gray-900">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="mb-12">
-          <h3 className="text-2xl font-normal tracking-widest text-gray-300 uppercase">Trusted By</h3>
-          <div className="w-full h-px bg-gray-700 mt-4"></div>
-        </div>
+    <div className="z-30 w-full max-w-full flex flex-col items-center gap-12 bg-black py-8">
+  <section className="px-4 sm:px-6 md:px-12 w-full max-w-7xl mx-auto">
+    <div className="mb-6">
+      <h3 className="text-2xl font-bold text-white">Brands I Worked With</h3>
+      <p className="text-sm text-gray-400">
+        Collaborations with innovative companies and institutions
+      </p>
+    </div>
+    {renderScrollBlocks(brands, BrandBadge, 25000, ["normal"])}
+  </section>
+</div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {brands.map((brand, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative group"
-            >
-              <div className="overflow-hidden rounded-xl aspect-video">
-                <img
-                  src={brand.logo}
-                  alt={brand.name}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
-                  <span className="text-white font-medium">{brand.name}</span>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
   );
 }
